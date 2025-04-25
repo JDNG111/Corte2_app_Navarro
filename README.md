@@ -9,10 +9,11 @@ Para dicho login, hacemos uso de "Firebase Authentication", el cual se encarga d
 ![image](https://github.com/user-attachments/assets/78ca3869-140e-494c-9770-7881c7cd9e37)
 
 Como lo hemos mencionado, la aplicación ahora hace uso de Firebase para el almacenamiento de datos, de tal forma, hemos implementado una nueva pantalla, la cual nos permite guardar, leer, eliminar y actualizar palabras en ingles.
-Dichas palabras son visibles para la respectiva cuenta del usuario que las guardo (he alli, la importancia de la integración y login con Firebase)
+Dichas palabras solo son visibles para la respectiva cuenta del usuario que las guardo (he alli, la importancia de la integración y login con Firebase para la personalización y privacidad de los usuarios)
 ![image](https://github.com/user-attachments/assets/b037d5b8-395b-4188-a853-8e10f99c4d05)
 
 Pronto integraremos nuevas funciones basadas en Firebase
+![image](https://github.com/user-attachments/assets/ab9f85ef-3c21-4dc6-be77-576f3791a285)
 
 ________________________________________
 ![image](https://github.com/user-attachments/assets/2135cf55-21eb-44d4-802d-fe2c6e87fd31)
@@ -69,7 +70,7 @@ Pantalla donde el usuario puede cambiar su configuración.
 •	Switch para activar o desactivar notificaciones.
  
 🛠️ Futuras Mejoras
-•	Implementar Firebase para almacenamiento de imágenes.
+•	Implementar un Chatbot de IA para simular conversaciones en ingles
 
 •	Agregar validaciones en los formularios.
 
@@ -81,13 +82,13 @@ Pantalla donde el usuario puede cambiar su configuración.
 
 Clona este repositorio:
 
-git clone https://github.com/JDNG111/Corte1_app_Navarro.git
+git clone https://github.com/JDNG111/Corte2_app_Navarro.git
 
 Abre el proyecto en Android Studio.
 
 Conéctalo a un emulador o dispositivo físico.
 
-Ejecuta la app y personaliza tu perfil. 🎨
+Ejecuta la app, crea tu cuenta y personaliza tu perfil. 🎨
 
 ________________________________________
 Hecho por:
