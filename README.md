@@ -42,6 +42,8 @@ La aplicación “Engineering English App” está pensada para ser un método d
 
 •	Coil (para carga de imágenes)
 
+• Firebase (para el login de la aplicación)
+
 📜 Explicación de Archivos Claves
 
 ThemeViewModel.kt
