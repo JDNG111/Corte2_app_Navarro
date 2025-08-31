@@ -3,642 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicción a la Tecnología: Una Solución Comunitaria</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Análisis DOFA - Movilidad Estudiantil Universidad Libre</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow-x: hidden;
-        }
-
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .floating-icons {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .section {
             min-height: 100vh;
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: white;
-        }
-
-        .problem-section {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-            color: white;
-        }
-
-        .solution-section {
-            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
-            color: white;
-        }
-
-        .community-section {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            color: #2d3436;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 1rem 0;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transform: translateY(50px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: black;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-item {
-            display: flex;
-            margin: 2rem 0;
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .timeline-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 2rem;
-            font-size: 1.5rem;
-            color: #667eea;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .interactive-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 1rem;
-        }
-
-        .interactive-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            z-index: 1000;
-            transition: width 0.3s ease;
-        }
-
-        .nav-dots {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 1rem 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background: #667eea;
-            transform: scale(1.5);
-        }
-
-        .phone-mockup {
-            width: 300px;
-            height: 600px;
-            background: #000;
-            border-radius: 30px;
             padding: 20px;
-            margin: 2rem auto;
-            position: relative;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
-            font-size: 2rem;
-            animation: phoneGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes phoneGlow {
-            0% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-            100% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
-        }
-
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .solution-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateY(30px);
-            opacity: 0;
         }
-
-        .solution-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #fff;
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+        
+        .header h2 {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .dofa-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .dofa-card {
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .dofa-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fortalezas {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+        
+        .oportunidades {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+        
+        .debilidades {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .amenazas {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+        }
+        
+        .dofa-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .dofa-list {
+            list-style: none;
+        }
+        
+        .dofa-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .dofa-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .matriz-estrategias {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .matriz-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .estrategia-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid;
+        }
+        
+        .fo-card {
+            border-left-color: #27ae60;
+        }
+        
+        .fa-card {
+            border-left-color: #f39c12;
+        }
+        
+        .do-card {
+            border-left-color: #3498db;
+        }
+        
+        .da-card {
+            border-left-color: #e74c3c;
+        }
+        
+        .estrategia-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .estrategia-list {
+            list-style: none;
+        }
+        
+        .estrategia-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .universidad-info {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            border-radius: 10px;
+        }
+        
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .card { margin: 0.5rem; padding: 1rem; }
-            .nav-dots { display: none; }
+            .dofa-grid, .matriz-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="progress-bar" id="progressBar"></div>
-    
-    <div class="nav-dots">
-        <div class="nav-dot active" data-section="0"></div>
-        <div class="nav-dot" data-section="1"></div>
-        <div class="nav-dot" data-section="2"></div>
-        <div class="nav-dot" data-section="3"></div>
-        <div class="nav-dot" data-section="4"></div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section" id="section-0">
-        <div class="floating-icons">
-            <i class="floating-icon fas fa-mobile-alt" style="top: 10%; left: 10%; animation-delay: 0s;"></i>
-            <i class="floating-icon fas fa-laptop" style="top: 20%; right: 15%; animation-delay: 1s;"></i>
-            <i class="floating-icon fas fa-tablet-alt" style="bottom: 30%; left: 20%; animation-delay: 2s;"></i>
-            <i class="floating-icon fas fa-gamepad" style="bottom: 20%; right: 10%; animation-delay: 3s;"></i>
-            <i class="floating-icon fas fa-tv" style="top: 40%; left: 50%; animation-delay: 4s;"></i>
+    <div class="container">
+        <div class="header">
+            <h1>ANÁLISIS DOFA</h1>
+            <h2>Movilidad Estudiantil - Universidad Libre</h2>
         </div>
-        <div class="hero-content">
-            <h1 class="hero-title">Adicción a la Tecnología</h1>
-            <p class="hero-subtitle">Construyendo Soluciones Comunitarias</p>
-            <button class="interactive-btn" onclick="scrollToSection(1)">
-                <i class="fas fa-arrow-down"></i> Descubrir Más
-            </button>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="section problem-section" id="section-1">
-        <div class="container">
-            <h2 class="section-title">La Problemática</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
+        
+        <div class="content">
+            <!-- ANÁLISIS DOFA -->
+            <div class="section">
+                <h2 class="section-title">I. ANÁLISIS DOFA</h2>
+                
+                <div class="dofa-grid">
+                    <div class="dofa-card fortalezas">
+                        <div class="dofa-title">FORTALEZAS</div>
+                        <ul class="dofa-list">
+                            <li>Experiencia institucional consolidada en educación superior</li>
+                            <li>Red de contactos académicos nacionales establecida</li>
+                            <li>Infraestructura tecnológica para programas virtuales</li>
+                            <li>Compromiso institucional con la formación integral</li>
+                            <li>Flexibilidad curricular para homologación de créditos</li>
+                            <li>Programas de semilleros de investigación activos</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <h3><i class="fas fa-chart-line"></i> Estadísticas Alarmantes</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="stat-card">
-                                    <div class="stat-number">4.5</div>
-                                    <div class="stat-label">Horas promedio diarias</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="stat-card">
-                                    <div class="stat-number">70%</div>
-                                    <div class="stat-label">Jóvenes afectados</div>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div class="dofa-card oportunidades">
+                        <div class="dofa-title">OPORTUNIDADES</div>
+                        <ul class="dofa-list">
+                            <li>Creciente demanda de experiencias internacionales</li>
+                            <li>Políticas gubernamentales que apoyan la internacionalización</li>
+                            <li>Avances tecnológicos que facilitan la movilidad virtual</li>
+                            <li>Mercado laboral que valora competencias interculturales</li>
+                            <li>Programas de financiación internacional disponibles</li>
+                            <li>Alianzas estratégicas con empresas multinacionales</li>
+                        </ul>
                     </div>
-                    <div class="card">
-                        <h3><i class="fas fa-heart-broken"></i> Impactos Sociales</h3>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-users"></i> Aislamiento social</li>
-                            <li><i class="fas fa-bed"></i> Trastornos del sueño</li>
-                            <li><i class="fas fa-brain"></i> Problemas de concentración</li>
-                            <li><i class="fas fa-family"></i> Conflictos familiares</li>
+                    
+                    <div class="dofa-card debilidades">
+                        <div class="dofa-title">DEBILIDADES</div>
+                        <ul class="dofa-list">
+                            <li>Limitada red de convenios internacionales activos</li>
+                            <li>Bajo nivel de bilingüismo en estudiantes</li>
+                            <li>Recursos financieros limitados para becas</li>
+                            <li>Falta de cultura de movilidad estudiantil</li>
+                            <li>Procesos administrativos complejos</li>
+                            <li>Escasa promoción de programas de movilidad</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dofa-card amenazas">
+                        <div class="dofa-title">AMENAZAS</div>
+                        <ul class="dofa-list">
+                            <li>Competencia de universidades con mayor prestigio internacional</li>
+                            <li>Fluctuaciones económicas que afectan el financiamiento</li>
+                            <li>Cambios en políticas migratorias internacionales</li>
+                            <li>Crisis sanitarias que restringen la movilidad física</li>
+                            <li>Devaluación de la moneda nacional</li>
+                            <li>Incertidumbre política que afecta relaciones internacionales</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="section solution-section" id="section-2">
-        <div class="container">
-            <h2 class="section-title">Nuestra Propuesta de Solución</h2>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Inclusión del Otro</h3>
-                    <p>Programas de mentoría entre pares donde jóvenes ayudan a jóvenes, creando vínculos reales y significativos.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Acuerdos Beneficiosos</h3>
-                    <p>Pactos familiares y escolares que balanceen el uso tecnológico con actividades presenciales y desarrollo personal.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Trabajo Comunitario</h3>
-                    <p>Espacios comunitarios tech-free donde se promueven actividades deportivas, artísticas y de voluntariado.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Implementation Timeline -->
-    <section class="section community-section" id="section-3">
-        <div class="container">
-            <h2 class="section-title">Plan de Implementación</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Fase 1: Diagnóstico Comunitario</h4>
-                        <p>Identificación de casos y necesidades específicas en colegios, familias y centros comunitarios.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Fase 2: Formación de Facilitadores</h4>
-                        <p>Capacitación de líderes comunitarios, padres y jóvenes en técnicas de intervención y acompañamiento.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Fase 3: Implementación</h4>
-                        <p>Puesta en marcha de talleres, grupos de apoyo y actividades alternativas en espacios comunitarios.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Fase 4: Evaluación y Ajuste</h4>
-                        <p>Seguimiento continuo, medición de resultados y ajustes basados en retroalimentación comunitaria.</p>
+            
+            <!-- MATRIZ DE ESTRATEGIAS -->
+            <div class="section">
+                <h2 class="section-title">II. MATRIZ DE ANÁLISIS ESTRATÉGICO</h2>
+                
+                <div class="matriz-estrategias">
+                    <div class="matriz-grid">
+                        <!-- ESTRATEGIAS FO -->
+                        <div class="estrategia-card fo-card">
+                            <div class="estrategia-title">ESTRATEGIAS FO<br><small>(Fortalezas + Oportunidades)</small></div>
+                            <ul class="estrategia-list">
+                                <li><strong>Expansión Internacional:</strong> Aprovechar la experiencia institucional para establecer convenios con universidades de prestigio internacional</li>
+                                <li><strong>Liderazgo en Movilidad Virtual:</strong> Utilizar la infraestructura tecnológica para posicionarse como líder en programas de movilidad virtual</li>
+                                <li><strong>Vinculación Empresa-Universidad:</strong> Conectar semilleros de investigación con empresas multinacionales para prácticas internacionales</li>
+                                <li><strong>Aprovechamiento de Políticas:</strong> Capitalizar las políticas gubernamentales para obtener financiación para programas de movilidad</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- ESTRATEGIAS FA -->
+                        <div class="estrategia-card fa-card">
+                            <div class="estrategia-title">ESTRATEGIAS FA<br><small>(Fortalezas + Amenazas)</small></div>
+                            <ul class="estrategia-list">
+                                <li><strong>Diferenciación Competitiva:</strong> Usar la formación integral como ventaja diferencial frente a la competencia internacional</li>
+                                <li><strong>Diversificación Geográfica:</strong> Aprovechar la red nacional para crear programas de movilidad regional cuando la internacional se vea limitada</li>
+                                <li><strong>Resiliencia Tecnológica:</strong> Fortalecer la infraestructura virtual para mantener programas durante crisis sanitarias</li>
+                                <li><strong>Estabilidad Curricular:</strong> Usar la flexibilidad curricular para adaptarse rápidamente a cambios en políticas educativas</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- ESTRATEGIAS DO -->
+                        <div class="estrategia-card do-card">
+                            <div class="estrategia-title">ESTRATEGIAS DO<br><small>(Debilidades + Oportunidades)</small></div>
+                            <ul class="estrategia-list">
+                                <li><strong>Fortalecimiento del Bilingüismo:</strong> Implementar programas intensivos de idiomas aprovechando la demanda del mercado laboral</li>
+                                <li><strong>Gestión de Financiación:</strong> Desarrollar oficina especializada en conseguir fondos internacionales para becas de movilidad</li>
+                                <li><strong>Simplificación Administrativa:</strong> Digitalizar y agilizar procesos aprovechando las nuevas tecnologías disponibles</li>
+                                <li><strong>Marketing de Movilidad:</strong> Crear campañas promocionales dirigidas a estudiantes destacando las oportunidades del mercado global</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- ESTRATEGIAS DA -->
+                        <div class="estrategia-card da-card">
+                            <div class="estrategia-title">ESTRATEGIAS DA<br><small>(Debilidades + Amenazas)</small></div>
+                            <ul class="estrategia-list">
+                                <li><strong>Fortalecimiento Interno:</strong> Mejorar la calidad académica interna para competir mejor con universidades de mayor prestigio</li>
+                                <li><strong>Alianzas Estratégicas:</strong> Formar consorcios con otras universidades para reducir costos y compartir riesgos</li>
+                                <li><strong>Planes de Contingencia:</strong> Desarrollar protocolos alternativos para mantener la movilidad durante crisis económicas o sanitarias</li>
+                                <li><strong>Diversificación de Mercados:</strong> Explorar movilidad hacia países con monedas más accesibles y políticas migratorias favorables</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="section" id="section-4" style="background: linear-gradient(135deg, #2d3436 0%, #636e72 100%); color: white;">
-        <div class="container text-center">
-            <h2 class="section-title">Construyamos Juntos la Solución</h2>
-            <p class="lead mb-5">Una sociedad más consciente e inclusiva comienza con pequeñas acciones comunitarias.</p>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <i class="fas fa-heart" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
-                        <h4>Únete</h4>
-                        <p>Participa en nuestros grupos de apoyo y actividades comunitarias.</p>
-                    </div>
+            
+            <!-- ANÁLISIS DETALLADO -->
+            <div class="section">
+                <h2 class="section-title">III. CONTEXTO ESTRATÉGICO</h2>
+                
+                <div style="background: #ecf0f1; padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">📋 Misión</h3>
+                    <p style="font-size: 1.1em; line-height: 1.6; color: #34495e;">
+                        Buscar formar profesionales íntegros, críticos y socialmente responsables. En el marco de la movilidad académica estudiantil, la misión es <strong>promover la formación integral a través de experiencias nacionales e internacionales que fortalezcan las competencias académicas, investigativas, culturales y sociales de los estudiantes</strong>, contribuyendo a su desarrollo personal y profesional.
+                    </p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <i class="fas fa-share-alt" style="font-size: 3rem; color: #3498db; margin-bottom: 1rem;"></i>
-                        <h4>Comparte</h4>
-                        <p>Difunde la propuesta en tu comunidad, familia y círculo social.</p>
-                    </div>
+                
+                <div style="background: #e8f6f3; padding: 25px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: #27ae60; margin-bottom: 15px;">🎯 Visión</h3>
+                    <p style="font-size: 1.1em; line-height: 1.6; color: #2c3e50;">
+                        Para el año 2024, la Universidad Libre se proyecta como una institución con alta presencia en redes académicas internacionales y nacionales, que fomenta activamente la movilidad estudiantil, permitiendo que sus alumnos sean ciudadanos globales, con competencias interculturales, dominio de otros idiomas y capacidad de aportar soluciones innovadoras en contextos locales y globales.
+                    </p>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <i class="fas fa-lightbulb" style="font-size: 3rem; color: #f1c40f; margin-bottom: 1rem;"></i>
-                        <h4>Innova</h4>
-                        <p>Propón nuevas ideas y adaptaciones para tu contexto específico.</p>
+                
+                <div style="background: #fdf2e9; padding: 25px; border-radius: 10px;">
+                    <h3 style="color: #d35400; margin-bottom: 15px;">🚀 Estrategias Institucionales</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #3498db;">
+                            <strong>Convenios Estratégicos:</strong> Fortalecer convenios internacionales y nacionales con universidades, centros de investigación y empresas.
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #27ae60;">
+                            <strong>Formación Bilingüe:</strong> Impulsar el bilingüismo y la formación en segundas lenguas como requisito clave para la movilidad.
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #f39c12;">
+                            <strong>Apoyo Financiero:</strong> Diseñar programas de becas, apoyos financieros y estímulos para facilitar la participación estudiantil.
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #9b59b6;">
+                            <strong>Movilidad Virtual:</strong> Promover la movilidad virtual mediante el uso de TIC y plataformas de cooperación académica.
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                            <strong>Doble Titulación:</strong> Fomentar programas de doble titulación y prácticas profesionales en el exterior.
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #34495e;">
+                            <strong>Reconocimiento Académico:</strong> Asegurar la homologación y reconocimiento de créditos académicos de los programas de movilidad.
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class="interactive-btn mt-4" onclick="showContact()">
-                <i class="fas fa-envelope"></i> Contactar al Equipo
-            </button>
+            
+            <div class="universidad-info">
+                <h3>Universidad Libre - Movilidad Estudiantil</h3>
+                <p>Formando ciudadanos globales con competencias interculturales</p>
+            </div>
         </div>
-    </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <script>
-        // Register ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Initial animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hero animations
-            gsap.timeline()
-                .to('.hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' })
-                .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '-=0.5');
-
-            // Floating icons animation
-            gsap.set('.floating-icon', { 
-                x: () => Math.random() * 100 - 50,
-                y: () => Math.random() * 100 - 50,
-                rotation: () => Math.random() * 360
-            });
-
-            // Card animations on scroll
-            gsap.utils.toArray('.card').forEach(card => {
-                gsap.fromTo(card, 
-                    { opacity: 0, y: 50 },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 1,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 80%',
-                            end: 'bottom 20%',
-                            toggleActions: 'play none none reverse'
-                        }
-                    }
-                );
-            });
-
-            // Solution cards animation
-            gsap.utils.toArray('.solution-card').forEach((card, index) => {
-                gsap.fromTo(card,
-                    { opacity: 0, y: 30 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        delay: index * 0.2,
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 80%'
-                        }
-                    }
-                );
-            });
-
-            // Timeline animation
-            gsap.utils.toArray('.timeline-item').forEach((item, index) => {
-                gsap.fromTo(item,
-                    { opacity: 0, x: -50 },
-                    {
-                        opacity: 1,
-                        x: 0,
-                        duration: 0.8,
-                        delay: index * 0.3,
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 80%'
-                        }
-                    }
-                );
-            });
-
-            // Progress bar
-            gsap.to('#progressBar', {
-                width: '100%',
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: 'body',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: true
-                }
-            });
-
-            // Navigation dots
-            updateNavDots();
-        });
-
-        // Smooth scrolling function
-        function scrollToSection(sectionIndex) {
-            const section = document.getElementById(`section-${sectionIndex}`);
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Update navigation dots
-        function updateNavDots() {
-            const sections = document.querySelectorAll('.section');
-            const dots = document.querySelectorAll('.nav-dot');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                        current = section.getAttribute('id').split('-')[1];
-                    }
-                });
-
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                    if (dot.getAttribute('data-section') === current) {
-                        dot.classList.add('active');
-                    }
-                });
-            });
-
-            // Add click functionality to dots
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const sectionIndex = dot.getAttribute('data-section');
-                    scrollToSection(sectionIndex);
-                });
-            });
-        }
-
-        // Interactive buttons
-        function showContact() {
-            gsap.to('body', { 
-                backgroundColor: '#2d3436', 
-                duration: 0.5,
-                onComplete: () => {
-                    alert('¡Gracias por tu interés! Contacta a nuestro equipo para más información sobre cómo implementar esta solución en tu comunidad.');
-                    gsap.to('body', { backgroundColor: 'transparent', duration: 0.5 });
-                }
-            });
-        }
-
-        // Add hover effects to interactive elements
-        document.querySelectorAll('.interactive-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                gsap.to(btn, { scale: 1.05, duration: 0.3 });
-            });
-            btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, { scale: 1, duration: 0.3 });
-            });
-        });
-
-        // Phone mockup interaction
-        const phoneScreen = document.querySelector('.phone-screen');
-        let phoneMessages = [
-            '<i class="fas fa-exclamation-triangle"></i>',
-            '<i class="fas fa-clock"></i><br>4h 30m',
-            '<i class="fas fa-battery-quarter"></i><br>15%',
-            '<i class="fas fa-bell-slash"></i><br>Silent'
-        ];
-        let messageIndex = 0;
-
-        setInterval(() => {
-            phoneScreen.innerHTML = phoneMessages[messageIndex];
-            messageIndex = (messageIndex + 1) % phoneMessages.length;
-        }, 3000);
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent) {
-                gsap.to(heroContent, { 
-                    y: scrolled * 0.5, 
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
-            }
-        });
-    </script>
+    </div>
 </body>
 </html>
