@@ -1,393 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matriz DOFA - King's Papitas</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            padding: 30px;
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .crown {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .dofa-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        .dofa-section {
-            padding: 30px;
-            min-height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .fortalezas {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
-        }
-
-        .oportunidades {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
-            color: white;
-        }
-
-        .debilidades {
-            background: linear-gradient(135deg, #FF5722, #E64A19);
-            color: white;
-        }
-
-        .amenazas {
-            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
-            color: white;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 25px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 2px;
-        }
-
-        .item {
-            background: rgba(255,255,255,0.1);
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid rgba(255,255,255,0.6);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .item:hover {
-            transform: translateX(5px);
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .item-code {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .item-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            opacity: 0.95;
-        }
-
-        .strategies {
-            background: linear-gradient(135deg, #34495e, #2c3e50);
-            color: white;
-            padding: 40px;
-        }
-
-        .strategies h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #ffd700;
-        }
-
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .strategy-item {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .strategy-item:hover {
-            border-color: #ffd700;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .strategy-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-        }
-
-        .strategy-list {
-            list-style: none;
-        }
-
-        .strategy-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .strategy-list li:before {
-            content: '▶';
-            color: #ffd700;
-            margin-right: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .dofa-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .strategy-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .dofa-section {
-                padding: 20px;
-            }
-        }
-
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            text-align: center;
-            display: block;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matriz DOFA - Simulador Desafiar (Helados en Crema)</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f6f8fa;
+    color: #222;
+    padding: 30px;
+  }
+  h1 {
+    text-align: center;
+    color: #005f73;
+    margin-bottom: 25px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  th {
+    background: #0a9396;
+    color: white;
+    text-transform: uppercase;
+    padding: 12px;
+    font-size: 1.1em;
+  }
+  td {
+    vertical-align: top;
+    width: 50%;
+    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+  }
+  tr:nth-child(even) td {
+    background: #f2f7f7;
+  }
+  .cat {
+    font-weight: bold;
+    color: #005f73;
+    margin-bottom: 5px;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="crown">👑</div>
-            <h1>MATRIZ DOFA - KING'S PAPITAS</h1>
-            <p>Análisis Estratégico en Simulador Desafiar</p>
-        </div>
 
-        <div class="dofa-grid">
-            <div class="dofa-section fortalezas">
-                <div class="icon">💪</div>
-                <h2 class="section-title">Fortalezas</h2>
-                
-                <div class="item">
-                    <div class="item-code">F1</div>
-                    <div class="item-text"><strong>Capacidad de producción óptima</strong> - Operamos al máximo de nuestra capacidad instalada</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">F2</div>
-                    <div class="item-text"><strong>Producto sustentable diferenciado</strong> - Enfoque ecológico en el mercado simulado</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">F3</div>
-                    <div class="item-text"><strong>Estrategia publicitaria diversificada</strong> - Presencia fuerte en múltiples canales promocionales</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">F4</div>
-                    <div class="item-text"><strong>Inversión consistente en I+D</strong> - Investigación directiva para mejora continua</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">F5</div>
-                    <div class="item-text"><strong>Pricing estratégico competitivo</strong> - Precios accesibles con calidad premium</div>
-                </div>
-            </div>
+<h1>Matriz DOFA - Empresa de Helado en Crema (Simulador Desafiar)</h1>
 
-            <div class="dofa-section oportunidades">
-                <div class="icon">🌟</div>
-                <h2 class="section-title">Oportunidades</h2>
-                
-                <div class="item">
-                    <div class="item-code">O1</div>
-                    <div class="item-text"><strong>Mercados desatendidos</strong> - Segmentos no cubiertos por las otras 9 empresas competidoras</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">O2</div>
-                    <div class="item-text"><strong>Expansión geográfica</strong> - Nuevas nichos de mercado </div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">O3</div>
-                    <div class="item-text"><strong>Innovación de producto</strong> - Desarrollo de un producto sustentable</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">O4</div>
-                    <div class="item-text"><strong>Alianzas estratégicas</strong> - Publicidad para nuestros consumidores clave</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">O5</div>
-                    <div class="item-text"><strong>Optimización de costos</strong> - Mejoras en eficiencia operativa disponibles</div>
-                </div>
-            </div>
+<table>
+  <tr>
+    <th>Fortalezas</th>
+    <th>Oportunidades</th>
+  </tr>
+  <tr>
+    <td>
+      <p class="cat">•</p> Gestión eficiente de costos y precios que permitió mantener márgenes positivos durante periodos de alta competencia. <br><br>
+      <p class="cat">•</p> Capacidad para ajustar la calidad del producto según la estacionalidad, optimizando la satisfacción del mercado. <br><br>
+      <p class="cat">•</p> Buen uso del presupuesto de marketing digital simulado, generando mayor reconocimiento en etapas clave del juego. <br><br>
+      <p class="cat">•</p> Planeación productiva coherente con los niveles de inventario y demanda estimada.
+    </td>
+    <td>
+      <p class="cat">•</p> Incrementar la inversión en publicidad para aprovechar picos de demanda en temporadas altas. <br><br>
+      <p class="cat">•</p> Optimizar el equilibrio entre precio y calidad para capturar nuevos segmentos del mercado simulado. <br><br>
+      <p class="cat">•</p> Expandir la capacidad de planta en etapas con alta rentabilidad esperada. <br><br>
+      <p class="cat">•</p> Utilizar estrategias de descuento más agresivas durante periodos de baja estacionalidad
+    </td>
+  </tr>
 
-            <div class="dofa-section debilidades">
-                <div class="icon">⚠️</div>
-                <h2 class="section-title">Debilidades</h2>
-                
-                <div class="item">
-                    <div class="item-code">D1</div>
-                    <div class="item-text"><strong>Dependencia de capacidad máxima</strong> - Poca flexibilidad ante variaciones de demanda</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">D2</div>
-                    <div class="item-text"><strong>Altos costos publicitarios</strong> - Inversión elevada en promoción vs competidores</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">D3</div>
-                    <div class="item-text"><strong>Márgenes ajustados</strong> - Precios competitivos limitan rentabilidad</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">D4</div>
-                    <div class="item-text"><strong>Riesgo de sobrestock</strong> - Producir al máximo sin certeza de venta total</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">D5</div>
-                    <div class="item-text"><strong>Dependencia de I+D</strong> - Altos gastos en investigación pueden afectar flujo de caja</div>
-                </div>
-            </div>
+  <tr>
+    <th>Debilidades</th>
+    <th>Amenazas</th>
+  </tr>
+  <tr>
+    <td>
+      <p class="cat">•</p> Dificultad inicial para anticipar los efectos de las variaciones en costos de insumos y su impacto en la rentabilidad. <br><br>
+      <p class="cat">•</p> Limitada precisión al proyectar la demanda, generando ocasionalmente sobreinventario o faltantes. <br><br>
+      <p class="cat">•</p> Limitada asignación óptima del presupuesto de marketing entre medios disponibles. <br><br>
+      <p class="cat">•</p> Lentitud en la adaptación ante cambios súbitos del mercado simulado.
+    </td>
+    <td>
+      <p class="cat">•</p> Alta competencia de otras empresas que ajustan precios agresivamente, reduciendo participación de mercado. <br><br>
+      <p class="cat">•</p> Variaciones estacionales que afectan el comportamiento de la demanda. <br><br>
+      <p class="cat">•</p> Riesgo de saturar la capacidad productiva en etapas de alta demanda, afectando tiempos de entrega. <br><br>
+      <p class="cat">•</p> Sensibilidad del consumidor ante variaciones pequeñas de precio o calidad.
+    </td>
+  </tr>
+</table>
 
-            <div class="dofa-section amenazas">
-                <div class="icon">⚡</div>
-                <h2 class="section-title">Amenazas</h2>
-                
-                <div class="item">
-                    <div class="item-code">A1</div>
-                    <div class="item-text"><strong>Competencia intensa</strong> - 9 empresas rivales con estrategias agresivas</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">A2</div>
-                    <div class="item-text"><strong>Guerra de precios</strong> - Competidores pueden reducir precios drásticamente</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">A3</div>
-                    <div class="item-text"><strong>Imitación de estrategia sustentable</strong> - Rivales pueden copiar nuestro diferenciador</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">A4</div>
-                    <div class="item-text"><strong>Fluctuación de costos de materia prima</strong> - Variables económicas del simulador</div>
-                </div>
-                
-                <div class="item">
-                    <div class="item-code">A5</div>
-                    <div class="item-text"><strong>Nuevos entrantes potenciales</strong> - Creditos bancarios</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="strategies">
-            <h2>🎯 Estrategias Derivadas</h2>
-            
-            <div class="strategy-grid">
-                <div class="strategy-item">
-                    <div class="strategy-title">FO (Fortalezas + Oportunidades)</div>
-                    <ul class="strategy-list">
-                        <li>Liderar mercados desatendidos con producción máxima</li>
-                        <li>Expandir geográficamente aprovechando ventaja sustentable</li>
-                        <li>Innovar productos usando capacidad de I+D</li>
-                    </ul>
-                </div>
-                
-                <div class="strategy-item">
-                    <div class="strategy-title">FA (Fortalezas + Amenazas)</div>
-                    <ul class="strategy-list">
-                        <li>Diferenciarse de competidores con sustentabilidad</li>
-                        <li>Mantener precios competitivos ante guerra de precios</li>
-                        <li>Fortalecer marca "King's" para evitar imitación</li>
-                    </ul>
-                </div>
-                
-                <div class="strategy-item">
-                    <div class="strategy-title">DO (Debilidades + Oportunidades)</div>
-                    <ul class="strategy-list">
-                        <li>Optimizar costos para mejorar márgenes</li>
-                        <li>Diversificar productos para usar capacidad total</li>
-                        <li>Crear alianzas para reducir costos publicitarios</li>
-                    </ul>
-                </div>
-                
-                <div class="strategy-item">
-                    <div class="strategy-title">DA (Debilidades + Amenazas)</div>
-                    <ul class="strategy-list">
-                        <li>Crear reservas financieras ante guerra de precios</li>
-                        <li>Desarrollar plan B ante imitación de competidores</li>
-                        <li>Balancear inversión en I+D vs rentabilidad</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
